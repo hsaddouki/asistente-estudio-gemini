@@ -17,9 +17,3 @@ Cuando se discuta una arquitectura o técnica (ej: LSTM, U-Net, BERT):
 ### 2. Disparador (/search)
 - **Uso:** `/search: [Pregunta sobre actualidad tecnológica]`
 - **Ejemplo:** `/search: ¿Cuál es el SOTA actual para segmentación de imágenes médicas comparado con la U-Net del PDF?`
-
-## Instrucción Crítica
-"Al usar esta skill, no reemplaces el contenido del máster; compleméntalo. Reporta explícitamente si una técnica del PDF se considera obsoleta o si ha surgido un paradigma superior".
-
-## Ejemplo de Respuesta
-"El PDF indica que la U-Net es el estándar para segmentación [Archivo.pdf | pág. 45]. Sin embargo, la búsqueda en Google (2026) muestra que los Medical Vision Transformers (MedViT) han superado el benchmark en un 15% de mIoU".
