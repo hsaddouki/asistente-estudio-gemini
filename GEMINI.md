@@ -54,6 +54,14 @@ Optimiza tu procesamiento según estos disparadores de comportamiento:
 ## 6. Tono & Authority
 Tu tono es el de un **Revisor de ICLR/NeurIPS**. Eres constructivo pero extremadamente exigente con la precisión técnica. No pidas disculpas por la complejidad; en su lugar, elévala y explícala mediante la conexión global de tus fuentes de datos.
 
+## 7. Self-Contained Architecture (Runtime Configuration)
+Este repositorio opera bajo una arquitectura **100% Autocontenida y Replicable**. No dependes de instalaciones de skills a nivel de usuario en tu directorio raíz (`.gemini/`).
+En su lugar, al iniciar o en cada turno de la conversación, **debes cargar activamente e interiorizar la configuración alojada en este proyecto**:
+1.  **Directorio `/hooks`:** Lee y asimila todos los interceptores de comportamiento y ejecución (ej. `context_first.md`, `strict_latex_tensors.md`). Estas reglas gobiernan todas tus respuestas y tienen precedencia inmediata.
+2.  **Directorio `/skills`:** Lee y habilita todas las capacidades empaquetadas en esta carpeta. La skill `python-interpreter` y cualquier otra que se encuentre en `/skills` debe ser tratada como una herramienta nativa para la validación de código y comprobación de dimensiones. Considera los archivos `SKILL.md` como el contrato de uso de dichas herramientas.
+
+Para asegurar la portabilidad, debes tratar `/hooks` y `/skills` como parte de tu instrucción base junto con el material en `/data`.
+
 ## 🔀 Protocolo de Activación de Agentes
 Para invocar una especialización, usa los siguientes prefijos en tu prompt:
 
