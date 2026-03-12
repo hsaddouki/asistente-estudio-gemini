@@ -22,18 +22,28 @@ El sistema utiliza un **Protocolo de Auto-Enrutamiento** que selecciona el agent
 - **Synthesizer**: Resúmenes y mapas conceptuales globales.
 - **Research Critic**: Análisis de papers SOTA y comparativas.
 
-## 🛠️ Configuración Local
-Para mantener el repositorio ligero, el contenido de `/data`, `/curriculum` y `/exam` está excluido del control de versiones. Gemini CLI puede leer estos directorios para proporcionar respuestas basadas en el contexto del máster.
+## 🛠️ Configuración Local y Portabilidad
 
-> **Nota:** Este proyecto se rige por las directrices de `GEMINI.md`, priorizando la precisión técnica y la citación obligatoria de fuentes.
+Este proyecto está diseñado para ser **100% replicable** en cualquier entorno. Para comenzar, sigue estos pasos:
 
-### Ejemplo de prompt
+1. **Configurar el Entorno:**
+   Ejecuta el script de configuración inicial para definir tus rutas locales (Vault de Obsidian, nombre del curso, etiquetas raíz):
+   ```bash
+   chmod +x setup.sh  # (En Linux/macOS)
+   ./setup.sh
+   ```
+   Esto generará un archivo `.env` personalizado para tu máquina.
 
-```
-🚀 Prompt de Estudio por Bloques (Deep Dive)
-"Inicia el Protocolo de Estudio Secuencial para la unidad: [Nombre de la Unidad/Asignatura].
+2. **Integración con Obsidian:**
+   El asistente incluye la skill `obsidian-sync`, que permite exportar tus bloques de estudio directamente a tu bóveda con un sistema de **Etiquetado Jerárquico**:
+   - **Estructura de Carpetas:** Organiza automáticamente las notas en `[COURSE_NAME]/Unidad_X_[ASIGNATURA]`.
+   - **Sistema de Etiquetas:** Crea y vincula etiquetas en la carpeta `3 - Etiquetas` siguiendo la jerarquía:
+     `Unidad X` -> `Asignatura` -> `Etiqueta Raíz (ej: Inteligencia Artificial)`.
 
-Tu misión es guiarme a través de los archivos del caché (especialmente [Archivo_Principal.pdf]) siguiendo estas reglas:
+## 🚀 Ejemplo de Prompt de Estudio por Bloques
+"Inicia el Protocolo de Estudio Secuencial para la unidad: [Unidad1_AgentesInteligentes/Agentes Inteligentes].
+
+Tu misión es guiarme a través de los archivos del caché (especialmente [Unidad1_AgentesInteligentes.pdff]) siguiendo estas reglas:
 
 Mapeo Inicial: Antes de empezar, genera un índice de la unidad dividido en 'Bloques Lógicos' (Conceptos, Matemáticas, Implementación).
 
@@ -41,9 +51,9 @@ Estudio por Bloques: Presenta únicamente el Primer Bloque. Para cada bloque deb
 
 Explicar: La teoría fundamental de forma intuitiva.
 
-Rigor: Aplicar el [HOOK_MATH] y [HOOK_SHAPES] si hay fórmulas o código.
+Rigor: Asegurarte que las formulas y contenidos son los correctos.
 
-Conectar: Usar el [HOOK_CONTEXT_LINK] para relacionarlo con lo que ya sé.
+Conectar: Usar la salida para relacionarlo con lo que ya sé.
 
 El Punto de Control (The Gatekeeper): Al final de cada bloque, detente. No pases al siguiente. Hazme una pregunta de aplicación práctica o un pequeño reto técnico.
 
